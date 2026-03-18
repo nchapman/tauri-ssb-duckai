@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "My SSB App",
+  "version": "0.1.0",
+  "identifier": "com.your-domain.your-app",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "beforeBuildCommand": "pnpm build",
+    "devUrl": "http://localhost:1420",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "windows": [],
+    "security": {
+      "csp": null,
+      "capabilities": [
+        {
+          "identifier": "default",
+          "description": "Capabilities for the local app (loading screen)",
+          "windows": ["main"],
+          "permissions": [
+            "core:default",
+            "window-state:default"
+          ]
+        },
+        {
+          "identifier": "remote",
+          "description": "Minimal capabilities granted to the remote SSB site",
+          "windows": ["main"],
+          "remote": {
+            "urls": ["https://example.com/*"]
+          },
+          "permissions": [
+            "core:window:allow-minimize",
+            "core:window:allow-maximize",
+            "core:window:allow-toggle-maximize",
+            "core:window:allow-close",
+            "core:window:allow-show",
+            "core:window:allow-start-dragging",
+            "decorum:allow-show-snap-overlay"
+          ]
+        }
+      ]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "macOS": {
+      "entitlements": "Entitlements.plist"
+    }
+  },
+  "plugins": {
+    "ssb": {
+      "url": "https://example.com/"
+    }
+  }
+}
