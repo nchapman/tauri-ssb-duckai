@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "My SSB App",
+  "productName": "Duck.ai",
   "version": "0.1.0",
-  "identifier": "com.your-domain.your-app",
+  "identifier": "com.nchapman.duckai",
   "build": {
     "beforeDevCommand": "pnpm dev",
     "beforeBuildCommand": "pnpm build",
@@ -29,7 +29,7 @@
           "description": "Minimal capabilities granted to the remote SSB site",
           "windows": ["main"],
           "remote": {
-            "urls": ["https://example.com/*"]
+            "urls": ["https://duck.ai/*"]
           },
           "permissions": [
             "core:window:allow-minimize",
@@ -60,7 +60,7 @@
   },
   "plugins": {
     "ssb": {
-      "url": "https://example.com/"
+      "url": "https://duck.ai/"
     }
   }
 }
